@@ -1,9 +1,11 @@
+
 class Solution:
-    def groupAnagrams(self, strs):
-        anagram_map = defaultdict(list)
-        
-        for word in strs:
-            sorted_word = ''.join(sorted(word))
-            anagram_map[sorted_word].append(word)
-        
-        return list(anagram_map.values())
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        d={}
+        for s in (strs):
+            key=" ".join(sorted(s))
+            if key  in d:
+                d[key].append(s)
+            else:
+                d[key]=[s]
+        return list(d.values())

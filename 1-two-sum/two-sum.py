@@ -1,10 +1,12 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        arr=[]
-        for i in range(0,len(nums)):
-            for j in range(i+1,len(nums)):
-                if nums[i]+nums[j]==target:
-                    arr.append(i)
-                    arr.append(j)
-        return arr
+        seen = {}
 
+        for i in range(len(nums)):
+            num = nums[i]
+            required = target - num
+
+            if required in seen:
+                return [seen[required], i]
+
+            seen[num] = i

@@ -1,13 +1,13 @@
 class Solution:
     def maxDepth(self, s: str) -> int:
-        depth = 0
         max_depth = 0
+        brackets = []
 
-        for ch in s:
-            if ch == '(':
-                depth += 1
-                max_depth = max(max_depth, depth)
-            elif ch == ')':
-                depth -= 1
+        for c in s:
+            if c == '(':
+                brackets.append(c)
+                max_depth = max(max_depth, len(brackets))
+            elif c == ')':
+                brackets.pop()
 
         return max_depth

@@ -22,4 +22,5 @@ class Solution:
                         nb = bal + (1 if grid[i][j + 1] == '(' else -1)
                         if 0 <= nb < maxBal:
                             dp[i][j + 1][nb] = True
-        return dp[m - 1][n - 1][0] 
+        return dp[m - 1][n - 1][0]
+         
